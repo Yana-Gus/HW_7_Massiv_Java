@@ -24,7 +24,7 @@ class StatsServiceTest {
         long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
         long actual = service.averageSumma(sales);
-        long expected = (8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18)/12;
+        long expected = (8 + 15 + 13 + 15 + 17 + 20 + 19 + 20 + 7 + 14 + 14 + 18) / 12;
 
         Assertions.assertEquals(expected, actual);
     }
@@ -47,6 +47,17 @@ class StatsServiceTest {
 
         long actual = service.minSales(sales);
         long expected = 9;
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void calculateMonthsWhenSaleBelowAverageSumma() {
+        StatsService service = new StatsService();
+        long[] sales = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        long actual = service.calculateMonthsBelowAverage(sales);
+        long expected = 5;
 
         Assertions.assertEquals(expected, actual);
     }
